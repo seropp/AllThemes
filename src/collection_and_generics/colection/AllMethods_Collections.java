@@ -3,9 +3,9 @@ package collection_and_generics.colection;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class AllMethods_Collections {
+public class AllMethods_Collections<T> {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] arr = {34341,434,34,33,423,4,235,25,25,46,7,845,36,24,65,357,5,887,88,9,85,4,654,63,4,23,43,4,5,4,37,547,46,8,7,546,56,3,46,46,7,46,84,4,56,546,4,54,342,90,8908,7,96,79,57,5,764,76,587,5,95,6,4, 2, 3, 4, 5, 6, 7, 8, 9};
 
         int[] arr1 = (new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).stream()
                 .mapToInt(x -> (int)x)
@@ -45,6 +45,29 @@ public class AllMethods_Collections {
         //    возвращает неизменный список, состоящий только из одного элемента.
         // 7. List<Integer> list = Stream.of(1, 2, 3)
         //                        .collect(Collectors.toCollection(ArrayList::new)
+        System.out.println(Arrays.toString(sort(arr)));
+    }
+     public static int[] sort(int[]  arr) {
 
+        int n = arr.length;
+
+         for (int interval = n/2 ; interval > 0; interval /= 2) {
+             for (int i = interval; i < n; i++) {
+                 System.out.println("A теперь зашли в for 2   i = " +i+"  interv "+ interval);
+                 System.out.println();
+                 int key = arr[i];
+                 int j = i;
+                 while (j>=interval && key<arr[j-interval]){
+                     System.out.println("КРУТИМ WHILE c шагом в "+interval+"   a j = "+j);
+                     System.out.println(j-interval);
+                     arr[j] = arr[j-interval];
+                    j -= interval;
+                 }
+                 arr[j] = key;
+             }
+         }
+            
+        
+        return arr;
     }
 }
