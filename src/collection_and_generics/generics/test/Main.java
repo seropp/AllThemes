@@ -1,54 +1,45 @@
 package collection_and_generics.generics.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) {
-    DynamicSizedGarage<Vehicle> dynamicSizedGarage = new DynamicSizedGarage();
-        dynamicSizedGarage.addVehicle(new Car());
-        dynamicSizedGarage.addVehicle(new Car());
-        dynamicSizedGarage.addVehicle(new Truck());
-        List<Car> cars = new ArrayList<>();
-        cars.add(new Car());
-        cars.add(new Car());
-        cars.add(new Car());
-        dynamicSizedGarage.addAll(cars);
-        List<Truck> trucks = new ArrayList<>();
-        trucks.add(new Truck());
-        trucks.add(new Truck());
-        trucks.add(new Truck());
 
+        // Predicate <T>
+        // BinaryOperator <T>
+        // UnaryOperator <T>
+        // Supplier <T>
+        // Consumer <T>
+        // Function <R,T>
+        Main main = new Main();
 
-    }
-}
-class Vehicle {}
+        Predicate<Main> predicate = m -> (m != null);
+        System.out.println(predicate.test(main));
 
-class Car extends Vehicle{}
+        BinaryOperator<Double> binaryOperator = (x, y) -> (x + y) / 10;
+        System.out.println(binaryOperator.apply(35.5, 34.5));
 
-class Truck extends Vehicle{
-}
+        UnaryOperator<String> unaryOperator = x -> x.toUpperCase() + ".I.Love.JAVA.";
+        System.out.println(unaryOperator.apply("like a programmer"));
 
-class DynamicSizedGarage<T extends Vehicle> {
-    private final List<T> vehicles;
+        Supplier<Main> supplier = () -> new Main();
+        System.out.println(supplier.get());
 
-    DynamicSizedGarage() {
-        vehicles = new ArrayList<>();
-    }
-    public void addVehicle(T t){
-        vehicles.add(t);
-    }
-    public T getVehicle(int index){
-        return vehicles.get(index);
-    }
+        Integer y = 45;
+        Consumer<Integer> consumer = x -> {
+            x += 10;
+            System.out.println(x);
+        };
+        consumer.accept(y);
+        System.out.println(y);
 
-    public void removeVehicle(T t){
-        vehicles.remove(t);
-    }
-    public void removeVehicle(int index){
-        vehicles.remove(index);
-    }
-    public void addAll(List<? extends T> list) {
-        vehicles.addAll(list);
+        Function<String, Integer> integerStringFunction = x -> {
+            return Integer.parseInt(x);
+        };
+        System.out.println(integerStringFunction.apply("342232") / 1000);
     }
 }

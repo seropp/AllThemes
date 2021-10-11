@@ -21,7 +21,9 @@ public class AllMethods_Collections<T> {
         // Collections.copy(list1, list2); Копирует list2 в list1 при этом list2.size()<=list1.size()
         // Collections.shuffle(list); Перемешивает элементы в коллекции
         // List list = Collections.EMPTY_LIST;
-        // Collections.rotate(list, dist); Перестановка символов на дистанцию dist
+        // Collections.
+        //
+        // rotate(list, dist); Перестановка символов на дистанцию dist
         // Collections.binarySearch(list, "A"); Возвращает первое вхождение эл
         // Collections.disjoint(Collection a, Collection b);  Проверяет есть ли хотя бы 1 общий элемент
         // Collections.fill(list,"S"); заполняет List объектом
