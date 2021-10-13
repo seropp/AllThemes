@@ -43,3 +43,4 @@ public class Main {
         System.out.println(integerStringFunction.apply("342232") / 1000);
     }
 }
+

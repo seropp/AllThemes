@@ -1,7 +1,13 @@
 package collection_and_generics.colection;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class AllMethods_Collections<T> {
     public static void main(String[] args) {
@@ -47,9 +53,9 @@ public class AllMethods_Collections<T> {
         //    возвращает неизменный список, состоящий только из одного элемента.
         // 7. List<Integer> list = Stream.of(1, 2, 3)
         //                        .collect(Collectors.toCollection(ArrayList::new)
-        System.out.println(Arrays.toString(sort(arr)));
+//        System.out.println(Arrays.toString(sort(arr)));
     }
-     public static int[] sort(int[]  arr) {
+     public static int[] sort(int[]  arr) throws IOException {
 
         int n = arr.length;
 
@@ -68,8 +74,14 @@ public class AllMethods_Collections<T> {
                  arr[j] = key;
              }
          }
-            
-        
+         List<String> list = new ArrayList<>();
+            Stream<String> stream = Files.lines(Paths.get(""));
+            Stream<String> stringStream = Arrays.stream("Aasdw".split(""));
+         IntStream stream1 = "24240".chars();
+         Stream<Integer> stream2 = Stream.builder().add(1).add(2).add(3).build().map(x-> (Integer)x);
+         Stream<String> stringStream1 = list.parallelStream();
+         Stream<Integer> stream3 = Stream.iterate(1, x-> x++);
+         Stream<Integer> stream4 = Stream.generate(()-> 1);
         return arr;
     }
 }
