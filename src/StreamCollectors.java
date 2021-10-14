@@ -1,7 +1,7 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamCollectors {
     public static void main(String[] args) {
@@ -13,11 +13,11 @@ public class StreamCollectors {
 
 //        List<Person> newPersonList =
 //                personList.stream()
-                // .collect(Collectors.averagingDouble(Person::getAge)); средний показатель
-                // .collect(Collectors.summarizingDouble(Person::getAge)); суммированный показатель
-                // .collect(Collectors.joining(" и ", "В Германии ", " совершеннолетние."));
-                // .collect(Collectors.groupingBy(Person::getAge));  Создание Map
-                // и другие. Множество функциональных возможностей по статистике и др
+        // .collect(Collectors.averagingDouble(Person::getAge)); средний показатель
+        // .collect(Collectors.summarizingDouble(Person::getAge)); суммированный показатель
+        // .collect(Collectors.joining(" и ", "В Германии ", " совершеннолетние."));
+        // .collect(Collectors.groupingBy(Person::getAge));  Создание Map
+        // и другие. Множество функциональных возможностей по статистике и др
 
 
         // через Collector.of() создаем свою логику обработки
@@ -35,10 +35,41 @@ public class StreamCollectors {
             System.out.println(names);  // ANDREW | IGOR | IRA | VITIA
         */
 
+        double sum = Stream.of(1,2,39)
+                .mapToInt(x->x)
+                .sum();
 
+        IntSummaryStatistics intSummaryStatistics = Stream.of(1,2,3,45,6)
+                .mapToInt(x->x)
+                .summaryStatistics();
+        System.out.printf("Max number: %d\nMin number: %d\nSum: %d\n",intSummaryStatistics.getMax(),intSummaryStatistics.getMin(),intSummaryStatistics.getSum());
+        System.out.println(sum);
+
+        SomeInterface someInterface = x -> System.out.println(x/10);
+        someInterface.soSomeMethod(100);
+        System.out.println("______________________");
+someInterface.someMethod();
+        SomeInterface someInterface1 = x-> {
+            System.out.println(x/100);
+
+        };
+        someInterface1.soSomeMethod(1000);
+        PersonCreater personCreater = Person::new;
+
+
+        Person person = personCreater.newPerson();
+
+
+
+        StringJoiner stringJoiner = new StringJoiner("-", "[", "]");
+        stringJoiner.add("1");
+        stringJoiner.add("6");
+        stringJoiner.add("5");
+        stringJoiner.add("3");
+        stringJoiner.add("2");
+        System.out.println(stringJoiner);
     }
 }
-
 
 class Person{
     private String name;
@@ -49,6 +80,10 @@ class Person{
         this.age = age;
     }
 
+    public Person() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -56,4 +91,18 @@ class Person{
     public int getAge() {
         return age;
     }
+}
+
+@FunctionalInterface
+interface SomeInterface{
+    default void someMethod(){
+        System.out.println("hello there!");
+    }
+
+    void soSomeMethod(int x);
+}
+
+@FunctionalInterface
+interface PersonCreater{
+    public Person newPerson();
 }
