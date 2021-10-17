@@ -68,6 +68,14 @@ someInterface.someMethod();
         stringJoiner.add("3");
         stringJoiner.add("2");
         System.out.println(stringJoiner);
+
+        int[][] ints = {{1,2,3,45},{1,2,3,4}};
+        int[] x = Arrays.stream(ints)
+                .flatMapToInt(Arrays::stream)
+                .toArray();
+        System.out.println(Arrays.toString(x));
+        (new Random()).ints()
+                .limit(10).forEach(System.out::println);
     }
 }
 
