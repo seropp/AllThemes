@@ -1,7 +1,11 @@
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class AllMethodsFiles {
     public static void main(String[] args) throws IOException {
@@ -31,10 +35,40 @@ public class AllMethodsFiles {
         // 9. boolean exists(Path path)  -  Проверяет, что объект по заданному пути существует
         // 10. long size(Path path)  -  Возвращает размер файла
 
-        
 
-        System.out.println(Files.isDirectory(Path.of("A:\\TestFiles\\3file.txt")));
-        System.out.println(Files.isRegularFile(Path.of("A:\\TestFiles\\3file.txt")));
-        System.out.println(Files.exists(Path.of("A:\\TestFiles\\3file.txt")));
+
+//        System.out.println(Files.isDirectory(Path.of("A:\\TestFiles\\3file.txt")));
+//        System.out.println(Files.isRegularFile(Path.of("A:\\TestFiles\\3file.txt")));
+//        System.out.println(Files.exists(Path.of("A:\\TestFiles\\3file.txt")));
+//        System.out.println(Files.size(Path.of("A:\\TestFiles\\3file.txt"))); // Размер файла в байтах
+
+
+        // 15. byte[] readAllBytes(Path path)  -  Возвращает все содержимое файла в виде массива байт
+        System.out.println(Arrays.toString(Files.readAllBytes(Path.of("A:\\TestFiles\\3file.txt"))));
+
+        // 16. String readString(Path path)  -  Возвращает все содержимое файла в виде строки
+        System.out.println(Files.readString(Path.of("A:\\TestFiles\\3file.txt")));
+
+        // 17. List<String> readAllLines(Path path) - Возвращает все содержимое файла в виде списка строк
+        System.out.println(Files.readAllLines(Path.of("A:\\TestFiles\\3file.txt")));
+
+        // 18. Path write(Path path, byte[])  -  Записывает в файл массив байт
+        Files.write((Path.of("A:\\TestFiles\\3file.txt")), new byte[]{1,2});
+
+        // 19. Path writeString(Path path, String str)  -  Перезаписывает в файл строку
+        Files.writeString((Path.of("A:\\TestFiles\\3file.txt")),"\nДа я точно стану программистом!");
+
+        // 20. DirectoryStream<Path> newDirectoryStream(Path dir)
+        // -  Возвращает коллекцию файлов (и поддиректорий) из заданной директории
+        // 1) через for-each 2) Этот объект - поток, поэтому close();
+
+        try(DirectoryStream<Path> files = Files.newDirectoryStream(Path.of("A:\\TestFiles"))){
+            for (Path path : files)
+                System.out.println(path);
+        }
+        catch (IOException ex){
+            System.out.println("Ошибка: "+ex.getMessage());
+        }
+
     }
 }
