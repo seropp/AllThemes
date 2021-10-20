@@ -47,26 +47,38 @@ public class NetWorking {
 //        }
 
 
+//
+//        try(InputStream inputStream = (new URL("https://www.google.by/images/branding/goo" +
+//                            "glelogo/1x/googlelogo_color_272x92dp.png").openStream())){
+//            Files.copy(inputStream, Path.of("A:\\TestFiles\\newImage.jpg"));
+//        }
+//        catch (MalformedURLException ex){
+//            System.out.println("неправильная ссылка: "+  ex.getMessage());
+//        }
+//        catch (Exception exception){
+//            System.out.println(exception.getMessage());
+//        }
+//        try(BufferedReader bufReader = new BufferedReader(new InputStreamReader(System.in));
+//        InputStreamReader reader = new InputStreamReader(System.in)) {
+//            String a = bufReader.readLine();
+//            System.out.println(a);
+//
+//            System.out.println(reader.read());
+//        }
+//        catch (IOException ex) {
+//            System.out.println(ex.getMessage()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        }
 
-        try(InputStream inputStream = (new URL("https://www.google.by/images/branding/goo" +
-                            "glelogo/1x/googlelogo_color_272x92dp.png").openStream())){
-            Files.copy(inputStream, Path.of("A:\\TestFiles\\newImage.jpg"));
-        }
-        catch (MalformedURLException ex){
-            System.out.println("неправильная ссылка: "+  ex.getMessage());
-        }
-        catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try(BufferedReader bufReader = new BufferedReader(new InputStreamReader(System.in));
-        InputStreamReader reader = new InputStreamReader(System.in)) {
-            String a = bufReader.readLine();
-            System.out.println(a);
+        PrintStream console = System.out;
+        PrintStream filePrint = new PrintStream(new File("A:\\TestFiles\\file.txt"));
+        System.setOut(filePrint);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
 
-            System.out.println(reader.read());
-        }
-        catch (IOException ex) {
-            System.out.println(ex.getMessage()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        }
+
+
+        //        System.setOut(console);
+//        System.out.println("Dsdsd");
     }
 }
