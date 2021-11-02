@@ -17,12 +17,14 @@ public class Test {
         String x = sc.next();
 
         System.out.println(x);
+        sc.close();
     }
 
     public static void numberCheck() {
         Scanner sc = new Scanner(System.in);
         int number;
         do{
+
             System.out.println("Please enter a positive number");
             while (!sc.hasNextInt()) {
                 sc.next();
@@ -31,5 +33,6 @@ public class Test {
         }while (number<=0);
 
         System.out.println(number);
+        sc.close();
     }
 }
