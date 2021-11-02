@@ -54,7 +54,6 @@ public class MainScanner {
                 arr[i] = x;
             }while (x<=0);
         }
-        sc.has
         System.out.println(Arrays.toString(arr));
     }
 }
