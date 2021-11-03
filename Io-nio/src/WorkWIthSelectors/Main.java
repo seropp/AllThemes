@@ -45,5 +45,27 @@ public class Main {
         RandomAccessFile store = new RandomAccessFile("путь", "rw");
         FileChannel channel = store.getChannel();
 
+// 1. Селектор проверяет готовность неск Channel's
+// 2. => преимущ. нужно меньше потоков(переключение межу потоками дорогостоящее)
+// 3. Thread -> Selector -> Some Channels
+// 4. Созд. сел.: Selector selector = Selector.open()
+// 5. Канал неблокирующего режима, который возвращает
+//    экземпляр SelectionKey (FileChannel всегда блокирующий)
+//    Регистрация канала:
+//    метод SelectionKey key = channel.register(selector, SelectionKey.OP_READ);
+//    SelectionKey — это набор операций, которые можно выполнить с каналом
+// 6. 2 параметр, это «набор интересов» (их 4 в зависимости от задачи)
+//     соединить - SelectionKey.OP_CONNECT | принимать - SelectionKey.OP_ACCEPT
+//     читать - SelectionKey.OP_READ | написать - SelectionKey.OP_WRITE
+// 7. При регистр. возвр объект SelectionKey, кот. сод. неск. свойств
+//      - можем узнать какие операции доступны
+//      - узнать какой Набор интересов
+//      - вернуть канал и селектор  selectionKey.channel(); selectionKey.selector();
+//      - прикрепить объект
+// 8. int select() - метод селектора, который возвр. кол. готовых каналов
+// 9. Set selectedKeys = selector.selectedKeys(); - этот ключ показ., что есть регистр. каналов с этим селект.
+// 10. close()
+// 11. wakeup (), после чего поток, ожидающий внутри select (), немедленно вернется.
+
     }
 }
