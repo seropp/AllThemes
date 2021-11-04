@@ -3,18 +3,22 @@ package tests;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            Files.move(Path.of("A:\\TestFiles\\pic2.jpg"), Path.of("A:\\TestFiles\\Ads\\pic3.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+////            Files.move(Path.of("A:\\TestFiles\\pic2.jpg"), Path.of("A:\\TestFiles\\Ads\\pic3.jpg"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(1,2,3,4,5, 6,7 ,8, 9, 10));
+        arrayList.subList(3-1, 5).clear();
+        System.out.println(arrayList);
+
     }
 }
 
@@ -64,11 +68,9 @@ class WorkWithDir{
         }catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
-// 1. DirectoryStream<Path> - для получения исп. newDirectoryStream()
-//    Он имеет Iterator -> foreach. Нужно исп. close().
+//
 // 2.  Files.newInputStream( Path.of( src ) );
 //
 //
@@ -84,7 +86,33 @@ class WorkWithDir{
 //     isAbsolute() | normalize() | relativize() etc.
 //  5. Files - утилитный класс (Содержит статические методы из метода File + новые(copy())
 //     Методы Files:
-//     createFile() | createDirectory() | move() | delete()
+//     createFile() | createDirectory() | move() | delete() | deleteIfExist()
+//     copy() (в File его нет) | List<String> readAllLines() | НО!лучше Stream<String> stream = Files.lines()
+//
+//  6. Проход по дереву файлов:
+//     Files.walkFileTree(Path path, FileVisitor obj)
+//      FileVisitor — интерфейс, в котором описаны все методы для обхода дерева файлов. Всего их 4
+//     * visitFile() - мы и описываем что нужно делать с каждым файлом в каждой директории.
+//     * preVisitDirectory() — логика, которую надо выполнять перед входом в папку;
+//     * visitFileFailed() — что делать, если вход в файл невозможен (нет доступа, или другие причины);
+//     * postVisitDirectory() — логика, которую надо выполнять после захода в папку.
+//      (необходимо имплементировать интерф и переопределить методы)
+//
+//      return FileVisitResult.CONTINUE;  OR  return FileVisitResult.TERMINATE;  (после манипуляции -> возвр методы))
+//
+//      SimpleFileVisitor<T> простой класс в котором нужно переопределить только visitFile()
+//
+//   7. DirectoryStream<Path> - для получения исп. newDirectoryStream()
+//      Он имеет Iterator -> foreach. Нужно исп. close().
+//
+//
+//  1. ConcurrentModificationException
+//  2. NoSuchElementException
+//  3. IllegalStateException
+//  4. UnsupportedOperationException
+//
+//
+//
 //
 //
 //
