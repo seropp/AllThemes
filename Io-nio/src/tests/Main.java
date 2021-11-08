@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+
 //        try {
 ////            Files.move(Path.of("A:\\TestFiles\\pic2.jpg"), Path.of("A:\\TestFiles\\Ads\\pic3.jpg"));
 //        } catch (IOException e) {
@@ -19,7 +20,18 @@ public class Main {
         arrayList.subList(3-1, 5).clear();
         System.out.println(arrayList);
 
+
+
     }
+}
+interface HH{
+    Hmm create();
+}
+class Hmm {
+    public Hmm() {
+    }
+
+
 }
 
 class WorkWithDir{
@@ -49,6 +61,7 @@ class WorkWithDir{
         }catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     static void allFiles (String sourceDir){
@@ -110,9 +123,9 @@ class WorkWithDir{
 //  2. NoSuchElementException
 //  3. IllegalStateException
 //  4. UnsupportedOperationException
-//
-//
-//
+//  5. OutOfMemoryError  -  нехватки памяти, а сборщик мусора не может высвободить ещё
+//  6. StackOverflowError -
+//  public static <T extends Number> void copy(List<T> dest, List<T> src)
 //
 //
 //
