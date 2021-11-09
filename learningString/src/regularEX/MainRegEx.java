@@ -5,6 +5,14 @@ public class MainRegEx {
         String a = "asda dwd3j dk3d3wqd qwd";
         String b = "\\w";
         someMethod(a,b);
+//
+//  Методы с возможностью принимать регулярные выражения
+//  1. split(String regex)
+//  2. matches(String regex) - соотв. ли страка рег выр
+//  3. replaceAll(String regex, String replacement) | replaceFirst(String regex, String replacement)
+//  4.
+
+
 
     }
 
