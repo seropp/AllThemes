@@ -11,7 +11,8 @@ import java.util.stream.Collectors;
 public class MainString {
     public static void main(String[] args) {
 
-    currantDate();
+
+
 
 
 
@@ -170,26 +171,24 @@ public class MainString {
 //
 //
 //
-//  equals(), equalsIgnoreCase(), trim(), String.valueOf() - примитив или объект в String
-//  Integer.parseInt(), Double.parseDouble() - Перевод строки в число
-//  join(delimiter - разделитель, elements - массив или коллекция) - Перевод коллекции строк к строковому представлению
-//  split(String regex) - (regex -  строковое регулярное выражение
-//  indexOf(), lastIndexOf() -> char, String  ИЛИ -1
-//  substring(int beginIndex, int endIndex) - Извлечение подстроки из строки
-//  toLowerCase(), toUpperCase()
-//  string1.concat(string2); - Объединение строк в Java
-//  contentEquals(StringBuffer sb),
-//  static String copyValueOf(char[] data) - (массив символов в String)
-//  boolean endsWith(String suffix) | startsWith(String prefix)
+//  equals(), equalsIgnoreCase(), contentEquals(StringBuffer sb),  compareTo(), compareToIgnoreCase()
+//
+//  endsWith(String suffix), startsWith(String prefix), isEmpty(), isBlank()
+//  split(String regex)
+//  join(delimiter - разделитель, elements - массив или коллекция) - Конкатенация коллекции строк
+//  lines() - returns a stream  toCharArray()
 //  byte getBytes() - строку в массив байт
-//  void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) Копирует символы из этой строки в массив символов назначения.
-//  boolean matches(String regex), str1.regionMatches(true(игрнор. регистр),индВ1,str2,индВ2, колСимаСравн); сравнивает подстроки в строках
-//  toCharArray(),  isEmpty(), isBlank()
-// equals();
-//equalsIgnoreCase();
-//StartWith();
-//EndsWith();
-// compareTo() и compareToIgnoreCase()
-// lines() -  returns a stream
-// "hi ".repeat(3) => hi hi hi (Java 11)
+//  Integer.parseInt(), Double.parseDouble() - Перевод строки в число
+//  String.valueOf() - примитив или объект в String
+//  static String copyValueOf(char[] data) - (массив символов в String)
+//  string1.concat(string2); - Объединение строк в Java
+//  substring(int beginIndex, int endIndex) - Извлечение подстроки из строки
 
+//  indexOf(), lastIndexOf() -> char, String  ИЛИ -1
+//  void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+//  boolean matches(String regex), str1.regionMatches(true(игрнор. регистр),индВ1,str2,индВ2, колСимаСравн)
+//  trim() (strip() улучшенная версия. Появилась в Java11)
+//  repeat(3) => hi hi hi (Java 11)
+
+//
+// 	isLowerCase(), isUpperCase(), isMirrored(), isSpaceChar(), toLowerCase(), toUpperCase()
