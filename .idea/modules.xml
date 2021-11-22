@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/AllThems.iml" filepath="$PROJECT_DIR$/AllThems.iml" />
       <module fileurl="file://$PROJECT_DIR$/Io-nio/Io-nio.iml" filepath="$PROJECT_DIR$/Io-nio/Io-nio.iml" />
       <module fileurl="file://$PROJECT_DIR$/learningString/learningString.iml" filepath="$PROJECT_DIR$/learningString/learningString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oop_core/oop_core.iml" filepath="$PROJECT_DIR$/oop_core/oop_core.iml" />
     </modules>
   </component>
 </project>

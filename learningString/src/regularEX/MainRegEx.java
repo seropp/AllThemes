@@ -7,15 +7,15 @@ import java.util.regex.Pattern;
 
 public class MainRegEx {
     public static void main(String[] args) {
-        someMethod(new ArrayList<>(Arrays.asList("The Java langguage language", "dwdw ere","23D221", "Here AM", "The END")));
+        someMethod(new ArrayList<>(Arrays.asList("The Java langguage language", "dwdw ere", "23D221", "Here AM", "The END")));
     }
 
     static void someMethod(ArrayList<String> text) {
         Pattern pattern = Pattern.compile("");
         for (String s : text) {
-         if(s.matches("[^drp]an")) {
-             System.out.println(s);
-         }
+            if (s.matches("[^drp]an")) {
+                System.out.println(s);
+            }
         }
 //        String[] arr = text.split("\\b");
 //        String[] arr1 = text.split("\b");

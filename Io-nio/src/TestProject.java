@@ -21,10 +21,10 @@ public class TestProject {
     переданного в качестве параметра:*/
     public static void scan1(String folder, String pattern) {
         Path dir = Paths.get(folder);
-        if (!Files.exists(dir) || !Files.isDirectory(dir)){
+        if (!Files.exists(dir) || !Files.isDirectory(dir)) {
             System.out.println("No such directory!");
         }
-        try(DirectoryStream<Path> ds = Files.newDirectoryStream(dir, pattern)) {
+        try (DirectoryStream<Path> ds = Files.newDirectoryStream(dir, pattern)) {
             int count = 0;
             for (Path path : ds) {
                 System.out.println(path.getFileName());
@@ -32,8 +32,7 @@ public class TestProject {
             }
             System.out.println();
             System.out.printf("%d Files match the pattern", count);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
