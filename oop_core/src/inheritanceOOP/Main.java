@@ -1,35 +1,67 @@
-    package inheritanceOOP;
+package inheritanceOOP;
 
-    import java.io.IOException;
-    import java.sql.SQLDataException;
 
-    public class Main {
-        public static void main(String[] args) {
-            Person p = new Person();
-            p.method();
-            Employ e = new Employ();
-            e.method();
-            e.method1();
-        }
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Collection c = new HashSet();
+        Main m = new Main();
+        m.print(c);
     }
 
-    class Person {
-        final void method() {
-            System.out.println("sss");
-        }
-
-        void method1() {
-            System.out.println("ssswww");
-        }
+    public void print(Collection c) {
+        System.out.println("Coll");
     }
 
-    class Employ extends Person {
-
+    public void print(Set c) {
+        System.out.println("S");
     }
 
-    class XXX extends Employ {
+    public void print(HashSet c) {
+        System.out.println("Hs");
     }
+}
+
+
+
     /*
+
+
+
+
+
+
+    1. Overloaded
+    2. Статическия привязка - компилятор(во время компеляции) проверяет сигнатуры методов,
+                              определив наиболее подхоящий устанавливает статическую привязку
+    3. Перегрузка методов связана ПОЛИМОРФИЗМ ВО ВРЕМЯ КОМПИЛЯЦИИ (ИЛИ ЖЕ СТАТИЧЕСКИЙ ПОЛИМОРФИЗМ)
+    4. Перегрузка за счет:
+          a. количества перемен. b. порядок перемен. c. типа перемен.
+    5. Тип возвр. значения не учитывается при перегрузке
+    6. Если у нас методы принимают один аргумент ссылочного типа, то возможна неоднозначность,
+       если мы будем передавать method(null); но если Integer x = null; method(x); все хорошо
+       два объекта с одного иерархиеского уровня => неоднозначность
+       Родитель + ребенок => все хорошо
+    7. при передачи примитива, возможно его повышение(понижение нет, т.к. возможны потери)
+       byte -> примитивы -> обертки -> int ...
+       char -> примитивы -> обертки -> int ...
+    8. static методы можно перегружать
+    9. метод main() можно перегрузить
+    10. Перегрузка операторов недопустима
+    11. Var-args (переменное число аргументов) Возможны различные варианты возникновения неоднозначностей
+
+
+
+
+
+
+
+
+
+
 
 
         1. inheritance  extends
