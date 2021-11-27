@@ -7,10 +7,11 @@ import java.nio.file.Path;
 public class Test0211 {
 
     public static void main(String[] args) {
-        Person person1 = new Person("Sergey", 25,  (new Car<Integer>("Tesla Model S", 666)));
+//        Person person1 = new Person("Sergey", 25,  (new Car<Integer>("Tesla Model S", 666)));
+        Person person2 = new Person("Sergey", 25,  (new Car<Integer>("Tesla Model S", 666)));
         try(ObjectOutputStream oOS = new ObjectOutputStream(Files.newOutputStream(Path.of("A:\\TestFiles\\serial.txt"))))
         {
-            oOS.writeObject(person1);
+            oOS.writeObject(person2);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -28,7 +29,7 @@ class Person extends Serialization {
     private static final long serialVersionUID = 1;
     private String name;
     private int age;
-    transient private Car car;
+    private static Car car;
 
     public Person(String name, int age) {
         this.name = name;
